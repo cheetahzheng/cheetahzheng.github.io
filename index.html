@@ -1,65 +1,65 @@
- <!DOCTYPE HTML>
- <html lang="en">
- <head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <title>Js Matrix</title> 
- <body>
- <canvas id="c"></canvas>
- <style type="text/css">canvas {display: block;}</style>
- <script type="text/javascript">
-var c = document.getElementById("c");
-var ctx = c.getContext("2d");
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Js Matrix by cheetahzheng</title> 
+<body>
+<canvas id="c"></canvas>
+<style type="text/css">canvas {display: block;}</style>
+<script type="text/javascript">
+    var c = document.getElementById("c");
+    var ctx = c.getContext("2d");
 
-//fullscreen
-var font_size = 16;
-c.height = window.innerHeight-font_size;
-c.width = window.innerWidth-font_size;
+    //fullscreen
+    var font_size = 16;
+    c.height = window.innerHeight-font_size;
+    c.width = window.innerWidth-font_size;
 
-//charset
-var txts = "#0123456789&matrix^neo|".split("");
-var signature = "by cheetahzheng".split("")
+    //charset
+    var txts = "#0123456789&matrix^neo|".split("");
+    var signature = "by cheetahzheng".split("")
 
-var columns = c.width/font_size; 
-//char pos in each column
-var drops = [];
-//init
-for(var x = 0; x < columns; x++)
-    drops[x] = 1; 
+    var columns = c.width/font_size; 
+    //char pos in each column
+    var drops = [];
+    //init
+    for(var x = 0; x < columns; x++)
+        drops[x] = 1; 
 
-//drop words
-function draw()
-{
-    //background
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, c.width, c.height);
-    
-	//matrix green
-    ctx.fillStyle = "#0F0";
-    ctx.font = font_size + "px arial";
-	
-    //each column
-    for(var i = 0; i < drops.length; i++)
+    //drop words
+    function draw()
     {
-        //random char
-        var text = txts[Math.floor(Math.random()*txts.length)];
-        //fill char to bottom of each column
-        ctx.fillText(text, i*font_size, drops[i]*font_size);
+        //background
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, c.width, c.height);
         
-        //full screen or cut 
-        if(drops[i]*font_size > c.height || Math.random() > 0.95)
-            drops[i] = 0;
-        drops[i]++;
+        //matrix green
+        ctx.fillStyle = "#0F0";
+        ctx.font = font_size + "px arial";
+        
+        //each column
+        for(var i = 0; i < drops.length; i++)
+        {
+            //random char
+            var text = txts[Math.floor(Math.random()*txts.length)];
+            //fill char to bottom of each column
+            ctx.fillText(text, i*font_size, drops[i]*font_size);
+            
+            //full screen or cut 
+            if(drops[i]*font_size > c.height || Math.random() > 0.95)
+                drops[i] = 0;
+            drops[i]++;
+        }
+        
+        for(var i = 0; i < signature.length; i++)
+        {
+            if( Math.random() > 0.95)
+                ctx.fillText(signature[i], (i+1)*font_size, c.height-font_size);
+        }
     }
-	
-	for(var i = 0; i < signature.length; i++)
-	{
-	    if( Math.random() > 0.95)
-		    ctx.fillText(signature[i], (i+1)*font_size, c.height-font_size);
-	}
-}
 
-setInterval(draw, 50);
+    setInterval(draw, 50);
  
- </script>
- </body>
- </html>
+</script>
+</body>
+</html>
