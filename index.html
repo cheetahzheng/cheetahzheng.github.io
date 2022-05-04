@@ -42,9 +42,8 @@
         for(var i = 0; i < drops.length; i++)
         {
             //random char
-            var text = txts[Math.floor(Math.random()*txts.length)];
-            if (drops[i] == 0)
-                text = title[i%title.length]
+            //var text = txts[Math.floor(Math.random()*txts.length)];
+            var text = title[drops[i]%title.length]
             //fill char to bottom of each column
             ctx.fillText(text, i*font_size, drops[i]*font_size);
             
