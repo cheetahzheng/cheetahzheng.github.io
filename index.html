@@ -17,8 +17,8 @@
 
     //charset
     var txts = "#0123456789&matrix^neo|".split("");
-    var signature = "by cheetahzheng".split("");
-    var title = "happy 21th birthday summer! ".split("");
+    var signature = "by Tangyao".split("");
+    var title = "Happy 21th birthday, Summer! ".split("");
 
     var columns = c.width/font_size; 
     //char pos in each column
@@ -42,8 +42,9 @@
         for(var i = 0; i < drops.length; i++)
         {
             //random char
-            //var text = txts[Math.floor(Math.random()*txts.length)];
-            var text = title[drops[i]%title.length]
+            var text = txts[Math.floor(Math.random()*txts.length)];
+            if (drop[i] == 1)
+                text = title[i%title.length];
             //fill char to bottom of each column
             ctx.fillText(text, i*font_size, drops[i]*font_size);
             
