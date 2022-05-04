@@ -11,7 +11,7 @@
     var ctx = c.getContext("2d");
 
     //fullscreen
-    var font_size = 16;
+    var font_size = 32;
     c.height = window.innerHeight-font_size;
     c.width = window.innerWidth-font_size;
 
@@ -42,9 +42,8 @@
         for(var i = 0; i < drops.length; i++)
         {
             //random char
-            var text = txts[Math.floor(Math.random()*txts.length)];
-            if (drops[i] <= 1)
-                text = title[i%title.length];
+            // var text = txts[Math.floor(Math.random()*txts.length)];
+            var text = title[i%title.length];
             //fill char to bottom of each column
             ctx.fillText(text, i*font_size, drops[i]*font_size);
             
